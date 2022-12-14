@@ -1,0 +1,6 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.7-bullseye",
+	"forwardPorts": [4567],
+	"postCreateCommand": "pip3 install httpx",
+	"postStartCommand": "python3 start.py"
+}
