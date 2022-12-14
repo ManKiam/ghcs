@@ -1,5 +1,5 @@
 {
     "image": "mcr.microsoft.com/devcontainers/python:0-3.7-bullseye",
 	"postCreateCommand": "pip3 install aiohttp pytelegrambotapi playwright && playwright install-deps && playwright install chromium",
-	"postStartCommand": "nohup python3 pw.py"
+	"postStartCommand": "nohup python3 pw.py & && echo 1"
 }
