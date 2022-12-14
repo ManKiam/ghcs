@@ -52,8 +52,8 @@ async def main():
         await page.get_by_role("link", name=sessions[cur_index][1]).click()
         while now < cur_ex:
             await asyncio.sleep(min([cur_ex - now, 2*60]))
-            await page.screenshot(path='test.png')
-            await bot.send_photo(chat, open('test.png', 'rb'))
+            # await page.screenshot(path='test.png')
+            # await bot.send_photo(chat, open('test.png', 'rb'))
             await page.reload()
 
         await context.close()
