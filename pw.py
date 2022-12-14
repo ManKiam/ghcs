@@ -47,14 +47,15 @@ async def main():
         }]})
 
         now = time.time()
-        page = await context.new_page()
-        await page.goto("https://github.com/codespaces")
-        await page.get_by_role("link", name=sessions[cur_index][1]).click()
         while now < cur_ex:
+            page = await context.new_page()
+            await page.goto("https://github.com/codespaces")
+            await page.get_by_role("link", name=sessions[cur_index][1]).click()
             await asyncio.sleep(min([cur_ex - now, 2*60]))
             # await page.screenshot(path='test.png')
             # await bot.send_photo(chat, open('test.png', 'rb'))
-            await page.reload()
+            await page.close()
+            now = time.time()
 
         await context.close()
         await browser.close()
