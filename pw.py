@@ -7,16 +7,16 @@ from playwright.async_api import async_playwright
 from telebot.async_telebot import AsyncTeleBot
 
 time.sleep(5)
-sessions = [    # user_session    codespace     next_index
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "silver lamp", 1],  # assdf43gqs@gmail.com
-    ["q8u0h2WM9chKX7xlRXHeg-a6C5aP89r5BAY4Rgmk9RQcJn2Q", "crispy goldfish", 2],  # mmadtqi125@protonmail.com:asjtp77nbby8tv6
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 3],
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 4],
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 5],
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 6],
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 7],
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 8],
-    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", "", 0]
+sessions = [    # user_session, next_index
+    ["WXswTl0t2OLEHu3uybq2fxOxHi2mTU3RepfahPjMa2dN799T", 1],  # assdf43gqs@gmail.com:Qwe123!@#2
+    ["q8u0h2WM9chKX7xlRXHeg-a6C5aP89r5BAY4Rgmk9RQcJn2Q", 2],  # mmadtqi125@protonmail.com:asjtp77nbby8tv6
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 3],
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 4],
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 5],
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 6],
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 7],
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 8],
+    ["wHg0E4whbRAuwgVNwEpzVhs7MuaIyk9QKYap29Hn8Vjts4SU", 0]
 ]
 
 cur_index = int(open('cur').read().strip())
@@ -47,9 +47,8 @@ async def main():
         }]})
         page = await context.new_page()
         await page.goto("https://github.com/codespaces")
-        await page.get_by_role("link", name=sessions[cur_index][1]).click()
+        await page.get_by_role("link", name="ghcs").click()
 
-        await page.wait_for_timeout(5000000)
         now = time.time()
         while now < cur_ex:
             await page.mouse.move(0, 0)
@@ -72,6 +71,9 @@ async def main():
             "name": "user_session", "value": sessions[next_index][0], "url": "https://github.com"
         }]})
         page = await context.new_page()
+        await page.goto("https://github.com/codespaces")
+        await page.get_by_role("link", name="ghcs").click()
+        await page.wait_for_timeout(5000)
 
         await context.close()
         await browser.close()
