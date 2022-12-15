@@ -51,7 +51,7 @@ async def main():
             page = await context.new_page()
             await page.goto("https://github.com/codespaces")
             await page.get_by_role("link", name=sessions[cur_index][1]).click()
-            await asyncio.sleep(min([cur_ex - now, 2*60]))
+            await page.wait_for_timeout(min([cur_ex - now, 2*60])*1000)
             await page.mouse.move(0, 0)
             await page.mouse.down()
             await page.mouse.move(0, 100)
