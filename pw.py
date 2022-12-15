@@ -49,19 +49,32 @@ async def main():
         now = time.time()
         while now < cur_ex:
             page = await context.new_page()
+            try:
+                await page.mouse.move(0, 0)
+                await page.mouse.down()
+                await page.mouse.move(0, 100)
+                await page.mouse.move(100, 100)
+                await page.mouse.move(100, 0)
+                await page.mouse.move(0, 0)
+                await page.mouse.up()
+            except:
+                pass
             await page.goto("https://github.com/codespaces")
             await page.get_by_role("link", name=sessions[cur_index][1]).click()
             await page.wait_for_timeout(min([cur_ex - now, 2*60])*1000)
-            await page.mouse.move(0, 0)
-            await page.mouse.down()
-            await page.mouse.move(0, 100)
-            await page.mouse.move(100, 100)
-            await page.mouse.move(100, 0)
-            await page.mouse.move(0, 0)
-            await page.mouse.up()
-            await page.screenshot(path='test.png')
-            await bot.send_photo(chat, open('test.png', 'rb'))
-            await page.close()
+            try:
+                await page.mouse.move(0, 0)
+                await page.mouse.down()
+                await page.mouse.move(0, 100)
+                await page.mouse.move(100, 100)
+                await page.mouse.move(100, 0)
+                await page.mouse.move(0, 0)
+                await page.mouse.up()
+                await page.screenshot(path='test.png')
+                await bot.send_photo(chat, open('test.png', 'rb'))
+                await page.close()
+            except:
+                pass
             now = time.time()
 
         await context.close()
