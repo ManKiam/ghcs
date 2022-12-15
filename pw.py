@@ -1,6 +1,7 @@
 """install:
 set max idle timeout in https://github.com/settings/codespaces
-`nohup python pw.py &`
+create codespace https://github.com/ManKiam/ghcs
+rename codespace name to `big bang`
 """
 import asyncio, time
 from playwright.async_api import async_playwright
@@ -51,14 +52,8 @@ async def main():
 
         now = time.time()
         while now < cur_ex:
-            await page.mouse.move(0, 0)
-            await page.mouse.down()
-            await page.mouse.move(0, 100)
-            await page.mouse.move(100, 100)
-            await page.mouse.move(100, 0)
-            await page.mouse.move(0, 0)
-            await page.mouse.up()
-            await page.wait_for_timeout(5000)
+            await page.mouse.click(0, 0)
+            await page.wait_for_timeout(1*60*1000)
             now = time.time()
 
         await context.close()
