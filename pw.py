@@ -52,7 +52,7 @@ async def main():
             await page.goto("https://github.com/codespaces")
             await page.get_by_role("link", name=sessions[cur_index][1]).click()
             await asyncio.sleep(min([cur_ex - now, 2*60]))
-            await page.locator(".editor-group-container").click()
+            await page.get_by_role("tab", name="Explorer (Ctrl+Shift+E)").locator("div").first.click()
             # await page.screenshot(path='test.png')
             # await bot.send_photo(chat, open('test.png', 'rb'))
             await page.close()
