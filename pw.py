@@ -47,7 +47,7 @@ async def main():
         }]})
         page = await context.new_page()
         await page.goto("https://github.com/codespaces")
-        await page.get_by_role("link", name="ghcs").click()
+        await page.get_by_role("link", name="big bang").click()
 
         now = time.time()
         while now < cur_ex:
@@ -72,7 +72,7 @@ async def main():
         }]})
         page = await context.new_page()
         await page.goto("https://github.com/codespaces")
-        await page.get_by_role("link", name="ghcs").click()
+        await page.get_by_role("link", name="big bang").click()
         await page.wait_for_timeout(5000)
 
         await context.close()
