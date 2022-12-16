@@ -1,0 +1,7 @@
+playwright
+click==6.7
+requests
+colorama
+psutil
+fire
+cryptography==37.0.4
